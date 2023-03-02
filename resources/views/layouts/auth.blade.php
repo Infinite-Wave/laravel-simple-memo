@@ -12,9 +12,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-    <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" crossorigin="anonymous"></script>
-    <link href="/layout.css" rel="stylesheet">
-    @yield('javascript')
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -75,33 +72,8 @@
             </div>
         </nav>
 
-        <main class="">
-            <div class="row">
-                <div class="col-sm-12 col-md-2 p-0">
-                    <div class="card">
-                        <div class="card-header">タグ一覧</div>
-                        <div class="card-body my-card-body">
-                        <a href="/" class="card-text d-block mb-2">全て表示</a>
-                        @foreach($tags as $t)
-                            <a href="/?tag={{$t['id']}}" class="card-text d-block elipsis mb-2">{{ $t['name'] }}</a>
-                        @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-4 p-0">
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between">メモ一覧<a href="{{ route('index') }}"><i class="fas fa-plus-circle"></i></a></div>
-                        <div class="card-body my-card-body">
-                        @foreach($memos as $memo)
-                            <a href="/edit/{{$memo['id']}}" class="card-text d-block elipsis mb-2">{{ $memo['content'] }}</a>
-                        @endforeach
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 p-0">
-                    @yield('content')
-                </div>
-            </div>
+        <main class="py-4">
+            @yield('content')
         </main>
     </div>
 </body>
